@@ -1,0 +1,9 @@
+{
+    "status": {
+        "timestamp": "2023-08-15T17:15:20.478Z",
+        "error_code": 1001,
+        "error_message": "This API Key is invalid.",
+        "elapsed": 0,
+        "credit_count": 0
+    }
+}

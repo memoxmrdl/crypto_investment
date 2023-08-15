@@ -18,5 +18,6 @@ module CryptoInvestment
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.coinmarketcap = config_for(:coinmarketcap)
   end
 end

@@ -1,0 +1,14 @@
+default: &default
+  api_url: <%= ENV["COINMARKETCAP_API_URL"] %>
+  api_key: <%= ENV["COINMARKETCAP_API_KEY"] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  api_url: https://test.coinmarketcap.com/v1
+  api_key: 4fa07601-47d7-4f9a-8fc3-cdc529321e00
+
+production:
+  <<: *default
