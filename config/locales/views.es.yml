@@ -1,0 +1,7 @@
+es:
+  generic:
+    calculate: Calcular
+  cryptos:
+    bitcoin: Bitcoin BTC
+    ethereum: Ethereum ETH
+    default: Valor

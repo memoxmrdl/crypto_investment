@@ -19,5 +19,5 @@ es:
       investment_calculator_result:
         number: Mes
         amount: "Rendimiento $"
-        crypto_amount: Valor crypto
+        crypto_amount: "%{crypto_name}"
 

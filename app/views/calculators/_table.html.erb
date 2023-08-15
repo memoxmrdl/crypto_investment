@@ -3,7 +3,7 @@
     <tr>
       <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"><%= InvestmentCalculatorResult.human_attribute_name(:number) %></th>
       <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"><%= InvestmentCalculatorResult.human_attribute_name(:amount) %></th>
-      <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"><%= InvestmentCalculatorResult.human_attribute_name(:crypto_amount) %></th>
+      <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"><%= InvestmentCalculatorResult.human_attribute_name(:crypto_amount, crypto_name:, default: t(:default, scope: :cryptos)) %></th>
     </tr>
   </thead>
   <tbody class="divide-y divide-gray-200 bg-white">
