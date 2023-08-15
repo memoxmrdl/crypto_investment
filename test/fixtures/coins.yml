@@ -1,0 +1,11 @@
+bitcoin:
+  name: Bitcoin
+  slug: bitcoin
+  symbol: BTC
+  price: 59000.0
+
+ethereum:
+  name: Ethereum
+  slug: ethereum
+  symbol: ETH
+  price: 4462.0
