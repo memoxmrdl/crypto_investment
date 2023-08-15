@@ -2,10 +2,12 @@ bitcoin:
   name: Bitcoin
   slug: bitcoin
   symbol: BTC
+  interest_rate: 60.0
   price: 59000.0
 
 ethereum:
   name: Ethereum
   slug: ethereum
   symbol: ETH
+  interest_rate: 36.0
   price: 4462.0
