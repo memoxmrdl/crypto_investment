@@ -1,0 +1,13 @@
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col sm:items-center space-y-4">
+    <div class="flex space-x-4">
+      <% current_coins.each do |coin| %>
+        <p><b><%= coin.name %>:</b> <%= number_to_currency coin.price %></p>
+      <% end %>
+    </div>
+    <%= turbo_frame_tag :form do %>
+      <%= render "form" %>
+    <% end %>
+  </div>
+  <%= turbo_frame_tag :investment_calculator %>
+</div>

@@ -1,0 +1,8 @@
+<%= form_with model: @investment_calculator, url: calculators_path do |form| %>
+  <div class="flex items-start space-x-2">
+    <%= render "fields/text", form: form, attribute: :amount %>
+    <div>
+      <%= form.submit "Calcular", class: "rounded-md bg-indigo-600 px-2.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+    </div>
+  </div>
+<% end %>

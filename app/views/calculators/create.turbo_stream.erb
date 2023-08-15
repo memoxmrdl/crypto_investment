@@ -1,0 +1,9 @@
+<% if @investment_calculator.errors.any? %>
+  <%= turbo_stream.update :form do %>
+    <%= render "form" %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.update :investment_calculator do %>
+    <%= render "table" %>
+  <% end %>
+<% end %>
