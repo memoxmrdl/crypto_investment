@@ -1,0 +1,23 @@
+es:
+  activerecord:
+    models:
+      coin: Crypto
+    attributes:
+      coin:
+        name: Nombre
+        slug: Slug
+        symbol: Simbolo
+        price: Valor
+    errors:
+      models:
+
+  activemodel:
+    models:
+      investment_calculator: Calculador de inversión
+      investment_calculator_result: Resultado del calculo de inversión
+    attributes:
+      investment_calculator_result:
+        number: Mes
+        amount: "Rendimiento $"
+        crypto_amount: Valor crypto
+

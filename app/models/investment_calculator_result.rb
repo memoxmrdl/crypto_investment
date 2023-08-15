@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class InvestmentCalculatorResult
-  include ActiveModel::API
   include ActiveModel::Model
   include ActiveModel::Attributes
+  extend ActiveModel::Translation
 
   attribute :number, :integer
   attribute :amount, :float, default: 0
