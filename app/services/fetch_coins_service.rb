@@ -4,7 +4,7 @@ class FetchCoinsService < ApplicationService
   private
 
   def repository_class
-    CryptoCurrencyListing
+    Coinmarketcap::CryptocurrenciesLatestRepository
   end
 
   def presenter_class
