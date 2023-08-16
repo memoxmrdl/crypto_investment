@@ -37,7 +37,7 @@ class ApplicationPresenter
   def mapper_attributes!
     return @resource if errors?
 
-    @data = @data.with_indifferent_access
+    @data.respond_to?(:with_indifferent_access) && (@data = @data.with_indifferent_access)
 
     presenter_attributes.each do |attribute|
       if @data.key?(attribute)

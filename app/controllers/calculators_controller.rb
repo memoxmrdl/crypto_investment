@@ -3,8 +3,6 @@
 class CalculatorsController < ApplicationController
   before_action :refresh_coins
 
-  COINS_DEFAULT = [:bitcoin, :ethereum]
-
   helper_method :current_coins
 
   def index
@@ -17,8 +15,8 @@ class CalculatorsController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream
-      format.csv { send_data(result.export_to_csv, filename: filename) }
-      format.json { send_data(result.export_to_json, filename: filename(format: :json)) }
+      format.csv { send_data(export_to_csv, filename: filename) }
+      format.json { send_data(export_to_json, filename: filename(format: :json)) }
     end
   end
 
@@ -35,10 +33,21 @@ class CalculatorsController < ApplicationController
   end
 
   def current_coins
-    Coin.where(slug: COINS_DEFAULT)
+    Coin.where(slug: Constants::Coins::DEFAULTS)
   end
 
   def filename(format: :csv)
-    "data.#{format}"
+    "data-exported.#{format}"
+  end
+
+  def export_to_csv
+    CsvExport.new(
+      i18n_scope: :investment_calculator_result,
+      collection: @investment_calculator.investment_calculator_results,
+    ).to_csv
+  end
+
+  def export_to_json
+    @investment_calculator.investment_calculator_results.to_json
   end
 end

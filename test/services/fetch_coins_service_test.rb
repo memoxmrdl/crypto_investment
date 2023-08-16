@@ -7,12 +7,13 @@ class FetchCoinsServiceTest < ActionDispatch::IntegrationTest
 
   def setup
     @subject = FetchCoinsService
+    @resource = OpenStruct.new
   end
 
   def test_it_fetch_coins
     stub_request_coinmarketcap_cryptocurrency_listings_latest
 
-    result = @subject.fetch(resource: OpenStruct.new)
+    result = @subject.fetch(resource: @resource)
 
     assert_equal 100, result.coins.length
   end
@@ -23,7 +24,7 @@ class FetchCoinsServiceTest < ActionDispatch::IntegrationTest
       body: file_fixture("coinmarketcap/401-Unauthorized").read
     )
 
-    result = @subject.fetch(resource: OpenStruct.new)
+    result = @subject.fetch(resource: @resource)
 
     assert_equal 0, result.coins.length
   end

@@ -2,14 +2,18 @@
 
 module Coinmarketcap
   class BaseRepository
-    BASE_URI = Rails.configuration.coinmarketcap[:api_url]
+    include HTTParty
+
+    base_uri Rails.configuration.coinmarketcap[:api_url]
+
+    format :json
 
     def self.retrieve
       new.retrieve
     end
 
     def retrieve
-      HTTParty.get("#{BASE_URI}#{current_path}", options)
+      self.class.get(current_path, options)
     end
 
     private

@@ -1,27 +1,25 @@
 # frozen_string_literal: true
 
-class CsvExport
-  def initialize(headers: [], collection: [], i18n_scope: nil)
-    @headers = headers
-    @collection = collection
-    @i18n_scope = i18n_scope
-  end
-
-  def to_csv
-    CSV.generate(headers: true) do |csv|
-      csv << i18n_headers
-
-      @collection.each do |item|
-        csv << @headers.map { |header| item.send(header) }
-      end
-    end
-  end
-
+class CsvExport < ApplicationExport
   private
 
-  def i18n_headers
-    return @headers unless @i18n_scope
+  def headers
+    [:number, :bitcoin_amount, :bitcoin_crypto_amount, :ethereum_amount, :ethereum_crypto_amount]
+  end
 
-    @headers.map { |header| I18n.t(header, scope: "exports.csv.#{@i18n_scope}") }
+  def collection_mapped
+    12.times.each_with_object([]) do |number, collection|
+      item = OpenStruct.new(number: number + 1)
+
+      Constants::Coins::DEFAULTS.each do |coin|
+        Constants::InvestmentCalculatorResults::CSV_ATTRIBUTES_DEFAULTS.each do |attribute|
+          value = @collection.send(coin)[number - 1].send(attribute)
+
+          item.send("#{coin}_#{attribute}=", value)
+        end
+      end
+
+      collection << item
+    end
   end
 end
