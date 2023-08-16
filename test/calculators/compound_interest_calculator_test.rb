@@ -20,7 +20,7 @@ class CompoundInterestCalculatorTest < ActionDispatch::IntegrationTest
 
     interest_rate_montly = (@crypto.interest_rate.to_f / 100.0) / @annual
 
-    real_amount = (@capital_amount * (1 + interest_rate_montly) ** @annual).round(2)
+    real_amount = (@capital_amount * (1 + interest_rate_montly)**@annual).round(2)
 
     assert_equal real_amount, result.last[:amount]
   end

@@ -10,5 +10,5 @@ class InvestmentCalculator
   attribute :coin, :string
   attribute :amount, :float
 
-  validates :amount, presence: true, numericality: { greater_than: 0 }
+  validates :amount, presence: true, numericality: {greater_than: 0}
 end

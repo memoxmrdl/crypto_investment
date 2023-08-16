@@ -24,7 +24,7 @@ class CryptoCurrencyListing
   def options
     {
       headers: {
-        'X-CMC_PRO_API_KEY' => Rails.configuration.coinmarketcap[:api_key]
+        "X-CMC_PRO_API_KEY" => Rails.configuration.coinmarketcap[:api_key]
       }
     }
   end

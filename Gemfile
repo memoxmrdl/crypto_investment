@@ -69,7 +69,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  gem "webmock"
+  gem "standardrb"
+  gem "brakeman"
+  gem "bundle-audit"
 end
 
 group :test do
@@ -77,4 +79,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "webmock"
 end
