@@ -1,0 +1,4 @@
+update_coins:
+  every: '60s'
+  class: UpdateCoinsJob
+  description: 'Sincroniza las criptomonedas con CoinMarketCap API'

@@ -16,7 +16,9 @@ class ApplicationService
     return yield(@resource, data) if block
 
     presenter_class.new(resource: @resource).present(data: data)
-  rescue
+  rescue => e
+    Rails.logger.error("Error Service: #{e}")
+
     @resource
   end
 

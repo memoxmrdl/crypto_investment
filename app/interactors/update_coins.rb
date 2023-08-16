@@ -4,14 +4,13 @@ class UpdateCoins
   include Interactor
 
   def call
-    fetch_coins
     update_coins
   end
 
   private
 
   def fetch_coins
-    @_fetch_coins ||= FetchCoinsService.fetch(resource: OpenStruct.new).coins
+    @_fetch_coins ||= FetchCoinsService.fetch(resource: OpenStruct.new(coins: [])).coins
   rescue => e
     Rails.logger.error("Error fetching coins: #{e}")
 
