@@ -1,11 +1,15 @@
 <div class="mt-8 flow-root">
+  <div class="flex space-x-4 mb-4 justify-end">
+    <%= button_to t(:download_csv, scope: :generic), calculators_path(format: :csv), params: { investment_calculator: params[:investment_calculator].to_unsafe_h } %>
+    <%= button_to t(:download_json, scope: :generic), calculators_path(format: :json), params: { investment_calculator: params[:investment_calculator].to_unsafe_h } %>
+  </div>
   <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="flex space-x-2 inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
       <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-        <%= render "table", results: @investment_calculator.bitcoin_results, crypto_name: t(:bitcoin, scope: :cryptos) %>
+        <%= render "table", results: @investment_calculator.investment_calculator_results.bitcoin, crypto: :bitcoin %>
       </div>
       <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-        <%= render "table", results: @investment_calculator.ethereum_results, crypto_name: t(:ethereum, scope: :cryptos) %>
+        <%= render "table", results: @investment_calculator.investment_calculator_results.ethereum, crypto: :ethereum %>
       </div>
     </div>
   </div>

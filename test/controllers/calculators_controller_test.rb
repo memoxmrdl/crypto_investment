@@ -23,6 +23,22 @@ class CalculatorsControllerTest < ActionDispatch::IntegrationTest
     post calculators_path, params: @params, as: :turbo_stream
 
     assert_response :success
-    assert_select ".help-error", "must be greater than 0"
+    assert_select ".help-error", "debe ser mayor que 0"
+  end
+
+  def test_it_exports_to_csv
+    @params[:investment_calculator][:coin] = :bitcoin
+
+    post calculators_path(format: :csv), params: @params
+
+    assert_response :success
+  end
+
+  def test_it_exports_to_json
+    @params[:investment_calculator][:coin] = :bitcoin
+
+    post calculators_path(format: :json), params: @params
+
+    assert_response :success
   end
 end

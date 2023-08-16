@@ -1,6 +1,8 @@
 es:
   generic:
     calculate: Calcular
+    download_csv: Descargar CSV
+    download_json: Descargar JSON
   cryptos:
     bitcoin: Bitcoin BTC
     ethereum: Ethereum ETH

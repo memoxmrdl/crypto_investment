@@ -1,0 +1,9 @@
+es:
+  exports:
+    csv:
+      investment_calculator_result:
+        number: Mes
+        bitcoin_amount: Rendimiento 5% Mensual
+        bitcoin_crypto_amount: Bitcoin BTC
+        ethereum_amount: Rendimiento 3% Mensual
+        ethereum_crypto_amount: Ethereum ETH
