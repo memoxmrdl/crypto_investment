@@ -1,33 +1,11 @@
 # frozen_string_literal: true
 
 module Coinmarketcap
-  class CryptocurrenciesLatestRepository
-    include HTTParty
-
-    base_uri Rails.configuration.coinmarketcap[:api_url]
-
-    format :json
-
-    def initialize(path:)
-      @path = path
-    end
-
-    def self.retrieve
-      new(path: "/cryptocurrency/listings/latest").retrieve
-    end
-
-    def retrieve
-      self.class.get(@path, options)
-    end
-
+  class CryptocurrenciesLatestRepository < BaseRepository
     private
 
-    def options
-      {
-        headers: {
-          "X-CMC_PRO_API_KEY" => Rails.configuration.coinmarketcap[:api_key]
-        }
-      }
+    def current_path
+      "/cryptocurrency/listings/latest"
     end
   end
 end
