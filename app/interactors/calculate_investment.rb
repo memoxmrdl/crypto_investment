@@ -18,7 +18,7 @@ class CalculateInvestment
   def calculate_investment
     calculate_investment_coins_defaults
   rescue => e
-    Rails.logger.error(e)
+    ErrorTracking.exception(e)
 
     context.investment_calculator.errors.add(:amount, :invalid)
     context.fail!

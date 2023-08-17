@@ -21,7 +21,7 @@ class SyncCryptocurrenciesToCoins
   def fetch_cryptocurrencies
     @_fetch_cryptocurrencies ||= FetchCryptocurrenciesService.fetch(resource: OpenStruct.new(coins: [])).coins
   rescue => e
-    Rails.logger.error("Error fetching cryptocurrencies: #{e}")
+    ErrorTracking.exception(e)
 
     []
   end

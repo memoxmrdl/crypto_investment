@@ -17,7 +17,7 @@ class ApplicationService
 
     presenter_class.new(resource: @resource).present(data: data)
   rescue => e
-    Rails.logger.error("Error Service: #{e}")
+    ErrorTracking.exception(e)
 
     @resource
   end
