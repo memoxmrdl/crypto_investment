@@ -26,22 +26,17 @@ Ejecutar las migraciones:
 ## Variables de entorno
 
 La APP necesita obtener información desde la API de [CoinMarketCap](https://coinmarketcap.com/api/documentation/v1) para registrar todas las criptomonedas disponibles.
-Es necesario modificar el archivo `bin/env` y agregar las siguientes variables:
+Es necesario copiar el archivo `bin/env.example` para eso ejecuta lo siguiente:
 
-    #!/usr/bin/env sh
-
-    export RUBYOPT="--yjit"
-    export COINMARKETCAP_API_URL=https://pro-api.coinmarketcap.com/v1
-    export COINMARKETCAP_API_KEY=af54a0a6-fd51-44a7-be66-84a2f2531080
-    export REDIS_URL=redis://127.0.0.1:6379/
+    cp bin/env.example bin/env
 
 ## Levantar servicios
 
-Para levantar el servidor de Rails es necesario primero definir las variables de entorno del archivo `bin/env`, ejecuta lo siguiente:
+Para levantar el servidor de Rails es necesario primero definir las variables de entorno del archivo `bin/env`, para eso ejecuta lo siguiente:
 
     source bin/env
 
-Después de esto ahora si procedemos a levantar los servicios
+Después de esto ahora si procedemos a levantar los servicios con:
 
     bin/dev
 
