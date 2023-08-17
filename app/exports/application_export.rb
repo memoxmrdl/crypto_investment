@@ -19,9 +19,7 @@ class ApplicationExport
 
   private
 
-  def headers
-    @headers
-  end
+  attr_reader :headers
 
   def collection_mapped
     @collection

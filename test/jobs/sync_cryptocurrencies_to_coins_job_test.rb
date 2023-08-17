@@ -1,8 +1,8 @@
 require "test_helper"
 
-class UpdateCoinsJobTest < ActiveJob::TestCase
+class SyncCryptocurrenciesToCoinsJobTest < ActiveJob::TestCase
   def setup
-    @subject = UpdateCoinsJob
+    @subject = SyncCryptocurrenciesToCoinsJob
   end
 
   def test_it_enqueued

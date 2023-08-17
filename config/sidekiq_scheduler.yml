@@ -1,4 +1,4 @@
-update_coins:
+sync_cryptocurrencies_to_coins:
   every: '60s'
-  class: UpdateCoinsJob
+  class: SyncCryptocurrenciesToCoinsJob
   description: 'Sincroniza las criptomonedas con CoinMarketCap API'

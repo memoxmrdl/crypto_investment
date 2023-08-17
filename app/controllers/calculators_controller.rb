@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CalculatorsController < ApplicationController
-  before_action :refresh_coins
+  before_action :sync_cryptocurrencies_to_coins
 
   helper_method :current_coins
 
@@ -26,10 +26,10 @@ class CalculatorsController < ApplicationController
     params.require(:investment_calculator).permit(:amount, :coin)
   end
 
-  def refresh_coins
+  def sync_cryptocurrencies_to_coins
     return unless Coin.count.zero?
 
-    UpdateCoins.call
+    SyncCryptocurrenciesToCoins.call
   end
 
   def current_coins
@@ -43,7 +43,7 @@ class CalculatorsController < ApplicationController
   def export_to_csv
     CsvExport.new(
       i18n_scope: :investment_calculator_result,
-      collection: @investment_calculator.investment_calculator_results,
+      collection: @investment_calculator.investment_calculator_results
     ).to_csv
   end
 
