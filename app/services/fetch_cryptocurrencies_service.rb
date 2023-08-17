@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FetchCoinsService < ApplicationService
+class FetchCryptocurrenciesService < ApplicationService
   private
 
   def repository_class
@@ -8,6 +8,6 @@ class FetchCoinsService < ApplicationService
   end
 
   def presenter_class
-    CoinsPresenter
+    CryptocurrenciesPresenter
   end
 end

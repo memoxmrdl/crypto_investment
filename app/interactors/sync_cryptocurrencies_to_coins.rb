@@ -33,6 +33,6 @@ class SyncCryptocurrenciesToCoins
   end
 
   def presenter_class
-    CoinPresenter
+    CryptocurrencyPresenter
   end
 end

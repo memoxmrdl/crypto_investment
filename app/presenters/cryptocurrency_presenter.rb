@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CoinPresenter < ApplicationPresenter
+class CryptocurrencyPresenter < ApplicationPresenter
   attributes name: :name,
     symbol: :symbol,
     slug: :slug,

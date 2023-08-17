@@ -2,11 +2,11 @@
 
 require "test_helper"
 
-class FetchCoinsServiceTest < ActionDispatch::IntegrationTest
+class FetchCryptocurrenciesServiceTest < ActionDispatch::IntegrationTest
   include StubRequestsTestHelper
 
   def setup
-    @subject = FetchCoinsService
+    @subject = FetchCryptocurrenciesService
     @resource = OpenStruct.new
   end
 

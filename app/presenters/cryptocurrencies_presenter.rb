@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CoinsPresenter < ApplicationPresenter
+class CryptocurrenciesPresenter < ApplicationPresenter
   attributes coins: :coins
 
   def coins
