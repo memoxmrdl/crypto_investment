@@ -3,9 +3,8 @@
 class CalculatorsController < ApplicationController
   before_action :sync_cryptocurrencies_to_coins
 
-  helper_method :current_coins
-
   def index
+    @current_coins = Coin.defaults
     @investment_calculator = InvestmentCalculator.new
   end
 
@@ -30,10 +29,6 @@ class CalculatorsController < ApplicationController
     return unless Coin.count.zero?
 
     SyncCryptocurrenciesToCoins.call
-  end
-
-  def current_coins
-    Coin.where(slug: Constants::Coins::DEFAULTS)
   end
 
   def filename(format: :csv)

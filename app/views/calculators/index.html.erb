@@ -1,7 +1,7 @@
 <div class="px-4 sm:px-6 lg:px-8">
   <div class="flex flex-col space-y-4">
     <div class="flex space-x-4">
-      <% current_coins.each do |coin| %>
+      <% @current_coins.each do |coin| %>
         <p><b><%= coin.name %>:</b> <%= number_to_currency coin.price %></p>
       <% end %>
     </div>
